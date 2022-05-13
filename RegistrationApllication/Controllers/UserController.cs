@@ -30,8 +30,7 @@ namespace RegistrationApllication.Controllers
 
         }
 
-        [HttpPost("Login")]
-        
+        [HttpPost("Login")]       
         public IActionResult Login([FromBody] UserModelClass userObj)
         {
             
@@ -68,11 +67,7 @@ namespace RegistrationApllication.Controllers
                     var token = handler.WriteToken(secToken).ToString();
                     Console.WriteLine(token);
                     var finalToken = savetoDb(token , adminUserName, adminUserPassword);
-                    return Ok(finalToken);
-                    
-
-
-
+                    return Ok(finalToken);                  
                 }
                 else
                 {
@@ -81,12 +76,8 @@ namespace RegistrationApllication.Controllers
                         StatusCode = 404,
                         Message = "Unauthorized"
                     });
-                }
-                
-
+                }              
             }
-
-
         }
         private TokenRequest savetoDb(string token , string username , string password)
         {

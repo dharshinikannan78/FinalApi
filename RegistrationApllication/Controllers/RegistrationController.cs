@@ -23,7 +23,7 @@ namespace RegistrationApllication.Controllers
         }
 
         [HttpGet("AllCandidates")]
-        //[Authorize] 
+        [Authorize] 
         public IActionResult GetCandidateDetails(string status)
 
         {
